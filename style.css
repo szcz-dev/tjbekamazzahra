@@ -18,16 +18,22 @@ a {
 
 /* Modern Navbar Styles - Smaller Version */
 .modern-navbar {
- background: #343a40;
- box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
- transition: top 0.3s ease, background-color 0.3s ease;
- position: fixed;
- width: 100%;
- top: 0;
- z-index: 999;
- padding-top: 0.1rem;
- padding-bottom: 0.2rem;
+  background: rgba(0, 0, 0, 0.75); /* Dark translucent background */
+  backdrop-filter: blur(10px); /* Glass blur effect */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); /* Slightly darker shadow */
+  transition: top 0.3s ease, background-color 0.3s ease;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+  padding: 0.5rem 1rem;
 }
+
+/* Adjust the value in 'top' below to match the navbar's height */
+.modern-navbar.hidden {
+  top: -100px;
+}
+
 
 .modern-navbar .navbar-brand {
  font-weight: bold;
