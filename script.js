@@ -5,17 +5,15 @@ AOS.init({
 });
 
 // Hide navbar completely on scroll down and show on scroll up for all devices
-let lastScrollTop = 0;
 const navbar = document.querySelector('.modern-navbar');
 
-window.addEventListener('scroll', function () {
- let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
- if (currentScroll > lastScrollTop && currentScroll > 50) {
-  // Scrolling down: hide the navbar completely
-  navbar.style.top = `-${navbar.offsetHeight}px`;
- } else {
-  // Scrolling up: show the navbar
-  navbar.style.top = '0';
- }
- lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset === 0) {
+    // At the very top, show the navbar
+    navbar.style.top = '0';
+  } else {
+    // Scrolled down, hide the navbar by moving it up out of view
+    navbar.style.top = `-${navbar.offsetHeight}px`;
+  }
 });
+
